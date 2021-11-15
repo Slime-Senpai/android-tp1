@@ -1,0 +1,31 @@
+<div class="addAssignmentDiv">
+  <a routerLink="/add">
+    <button mat-flat-button color="primary" class="addAssignment">
+      {{ addAssignmentButtonText }}
+    </button>
+  </a>
+</div>
+
+<main>
+  <h2>{{ title }}</h2>
+  <mat-list>
+    <mat-list-item
+      *ngFor="let assignment of assignments"
+      (click)="selectAssignment(assignment)"
+    >
+      <h3 mat-subheader>{{ assignment.date | date: "yyyy-MM-dd" }}</h3>
+      <a routerLink="/assignment/{{ assignment.id }}">
+        <p *ngIf="assignment.date.getTime() <= now(); else notDone">
+          {{ assignment.name }}
+        </p>
+        <ng-template #notDone>
+          <p style="color: red">
+            {{ assignment.name }}
+          </p>
+        </ng-template>
+      </a>
+    </mat-list-item>
+  </mat-list>
+
+  <!-- <app-assignment-detail [assignment]="selectedAssignment" (deleteAssignment)="onDeleteAssignment()"></app-assignment-detail> -->
+</main>

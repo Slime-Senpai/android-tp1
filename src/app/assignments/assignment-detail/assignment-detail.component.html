@@ -1,0 +1,10 @@
+<div class="container">
+  <mat-card *ngIf="assignment">
+    <mat-card-title>{{ assignment.name }}</mat-card-title>
+    <mat-card-subtitle>{{
+      assignment.date | date: "dd MMMM YYYY"
+    }}</mat-card-subtitle>
+
+    <button mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+  </mat-card>
+</div>

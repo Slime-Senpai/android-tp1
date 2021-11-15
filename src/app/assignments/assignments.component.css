@@ -1,0 +1,8 @@
+.addAssignmentDiv {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.addAssignment {
+  margin-right: 3em;
+}
